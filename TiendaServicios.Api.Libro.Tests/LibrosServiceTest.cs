@@ -15,6 +15,10 @@ namespace TiendaServicios.Api.Libro.Tests
 {
     public class LibrosServiceTest
     {
+        /// <summary>
+        ///  Método para el llenado de datos con Genfu
+        /// </summary>
+        /// <returns>Datos ficticios</returns>
         private IEnumerable<LibreriaMaterial> ObtenerDataPrueba()
         {
             A.Configure<LibreriaMaterial>()
