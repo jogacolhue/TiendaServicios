@@ -1,5 +1,8 @@
 # TiendaServicios
 
+![alt text](https://i.ibb.co/1vsfmwF/arquitectura.png)
+
+
 ## Bases de datos
 
 - PostgreSQL : tiendalibroautor
@@ -8,7 +11,7 @@
 
 ## Comandos de migraciones iniciales (deben de tener las bases de datos iniciadas)
 
-Cambiar las cadenas de conexi髇 de las configuraciones a localhost para que funcionen los comandos
+Cambiar las cadenas de conexi贸n de las configuraciones a localhost para que funcionen los comandos
 
 ```powershell
 dotnet tool install --global dotnet-ef --version 5.0.3
@@ -25,7 +28,7 @@ Se va a tener que ingresar a cada proyecto en la consola y ejecutar el comando s
 
 ## Comandos de despliegue en Docker
 
-### PostgreSQL (a la versi髇 13)
+### PostgreSQL (a la versi贸n 13)
 
 ```powershell
 docker pull postgres:latest
@@ -35,7 +38,7 @@ psql -U postgres
 create database tiendalibroautor;
 ```
 
-### Configuraci髇 del network para la compatibilidad del docker-compose de TiensaServicios.Api.Autor
+### Configuraci贸n del network para la compatibilidad del docker-compose de TiensaServicios.Api.Autor
 
 ```powershell
 docker network create microservicenet
@@ -43,7 +46,7 @@ docker network connect microservicenet postgres-container
 docker network inspect microservicenet
 ```
 
-### SQL Server (a la versi髇 13)
+### SQL Server (a la versi贸n 13)
 
 ```powershell
 docker pull mcr.microsoft.com/mssql/server
@@ -53,7 +56,7 @@ docker network connect microservicenet mssql-container
 
 * Crear la base de datos en Management Studio
 
-### MySQL (a la versi髇 8)
+### MySQL (a la versi贸n 8)
 
 ```powershell
 docker pull mysql
@@ -63,17 +66,19 @@ docker network connect microservicenet mysql-container
 
 * Crear la base de datos en HeidiSQL
 
-### RabbitMQ (a la versi髇 3)
+### RabbitMQ (a la versi贸n 3)
 
-#### Versi髇 sin gestor web
+#### Versi贸n sin gestor web
 
 ```powershell 
 docker run -d --hostname mi-rabbit-server --name rabbitmq-container rabbitmq:3 
 docker network connect microservicenet rabbitmq-container
 ```
 
-#### Versi髇 con gestor web
+#### Versi贸n con gestor web
 ```powershell 
 docker run -d --hostname mi-rabbit-server --name rabbitmq-web-container -p 15672:15672 rabbitmq:3-management
 docker network connect microservicenet rabbitmq-web-container
 ```
+
+
