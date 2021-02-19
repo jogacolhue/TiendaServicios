@@ -62,3 +62,18 @@ docker network connect microservicenet mysql-container
 ```
 
 * Crear la base de datos en HeidiSQL
+
+### RabbitMQ (a la versión 3)
+
+#### Versión sin gestor web
+
+```powershell 
+docker run -d --hostname mi-rabbit-server --name rabbitmq-container rabbitmq:3 
+docker network connect microservicenet rabbitmq-container
+```
+
+#### Versión con gestor web
+```powershell 
+docker run -d --hostname mi-rabbit-server --name rabbitmq-web-container -p 15672:15672 rabbitmq:3-management
+docker network connect microservicenet rabbitmq-web-container
+```
