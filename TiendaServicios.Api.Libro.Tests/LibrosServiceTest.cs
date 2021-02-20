@@ -106,7 +106,7 @@ namespace TiendaServicios.Api.Libro.Tests
                 FechaPublicacion = DateTime.Now
             };
 
-            var manejador = new Nuevo.Manejador(contexto);
+            var manejador = new Nuevo.Manejador(contexto, null);
 
             var libro = await manejador.Handle(request, new System.Threading.CancellationToken());
 
