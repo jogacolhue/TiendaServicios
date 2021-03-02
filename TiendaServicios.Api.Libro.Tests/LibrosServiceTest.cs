@@ -9,6 +9,7 @@ using System.Linq;
 using TiendaServicios.Api.Libro.Aplicacion;
 using TiendaServicios.Api.Libro.Modelo;
 using TiendaServicios.Api.Libro.Persistencia;
+using TiendaServicios.RabbitMQ.Bus.BusRabbit;
 using Xunit;
 
 namespace TiendaServicios.Api.Libro.Tests
@@ -97,6 +98,8 @@ namespace TiendaServicios.Api.Libro.Tests
                 .UseInMemoryDatabase(databaseName: "BaseDatosLibro")
                 .Options;
 
+            var eventBus = new Mock<IRabbitEventBus>();
+
             var contexto = new ContextoLibreria(options);
 
             var request = new Nuevo.Ejecuta()
@@ -106,7 +109,7 @@ namespace TiendaServicios.Api.Libro.Tests
                 FechaPublicacion = DateTime.Now
             };
 
-            var manejador = new Nuevo.Manejador(contexto, null);
+            var manejador = new Nuevo.Manejador(contexto, eventBus.Object);
 
             var libro = await manejador.Handle(request, new System.Threading.CancellationToken());
 
