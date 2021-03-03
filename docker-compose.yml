@@ -5,24 +5,24 @@ services:
     image: ${DOCKER_REGISTRY-}tiendaserviciosapiautor
     build:
       context: .
-      dockerfile: TiendaServicios.Api.Autor/Dockerfile
+      dockerfile: TiendaServiciosApiAutor.Dockerfile
   tiendaservicios.api.libro:
     image: ${DOCKER_REGISTRY-}tiendaserviciosapilibro
     build:
       context: .
-      dockerfile: TiendaServicios.Api.Libro/Dockerfile
+      dockerfile: TiendaServiciosApiLibro.Dockerfile
 
   tiendaservicios.api.carritocompra:
     image: ${DOCKER_REGISTRY-}tiendaserviciosapicarritocompra
     build:
       context: .
-      dockerfile: TiendaServicios.Api.CarritoCompra/Dockerfile
+      dockerfile: TiendaServiciosApiCarritoCompra.Dockerfile
 
   tiendaservicios.api.gateway:
     image: ${DOCKER_REGISTRY-}tiendaserviciosapigateway
     build:
       context: .
-      dockerfile: TiendaServicios.Api.Gateway/Dockerfile
+      dockerfile: TiendaServiciosApiGateway.Dockerfile
 
 networks:
   default:
